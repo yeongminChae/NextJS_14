@@ -5,13 +5,15 @@ export default function Home() {
         {["Nico", "Me", "You", "Yourself"].map((person, index) => (
           <div
             key={index}
-            className="flex items-center gap-5 rounded-xl border-b-2 border-gray-500 p-2.5 pb-5 first:border-0 last:border-0 odd:bg-gray-100 even:bg-cyan-100"
+            className="flex items-center gap-5 rounded-xl p-2.5 pb-5 *:animate-pulse"
           >
             <div className="size-10 rounded-full bg-blue-400" />
-            <span className="text-lg font-medium ">{person}</span>
+            <div className="h-4 w-40 rounded-full bg-gray-400" />
+            <div className="h-4 w-20 rounded-full bg-gray-400" />
+            {/* <span className="text-lg font-medium ">{person}</span>
             <div className="flex size-6 items-center justify-center rounded-full bg-red-500 text-white">
               <span>{index}</span>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
