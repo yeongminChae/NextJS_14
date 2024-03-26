@@ -6,9 +6,8 @@ export default function Home() {
           type="text"
           placeholder="Search here..."
           className="h-10 w-full rounded-full bg-gray-200 pl-5 outline-none ring ring-transparent transition-shadow placeholder:drop-shadow focus:shadow-md focus:ring-orange-500 focus:ring-offset-2"
-          // className="ring ring-orange-300 ring-offset-2 ring-offset-blue-400"
         />
-        <button className="rounded-full bg-black bg-opacity-50 py-2 font-medium text-white outline-none transition-transform focus:scale-90 active:scale-90 md:px-10">
+        <button className="rounded-full bg-gradient-to-tr from-cyan-500 via-pink-400 to-purple-500 py-2 font-medium text-white outline-none transition-transform focus:scale-90 active:scale-90 md:px-10">
           Search
         </button>
       </div>
