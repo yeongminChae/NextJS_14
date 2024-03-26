@@ -7,8 +7,10 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    borderRadius: {
-      super: "150px",
+    extend: {
+      borderRadius: {
+        super: "150px",
+      },
     },
   },
   plugins: [],
