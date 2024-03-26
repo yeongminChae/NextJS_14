@@ -1,32 +1,16 @@
 export default function Home() {
   return (
     <main className="flex h-screen items-center justify-center bg-slate-300 p-5 dark:bg-slate-600">
-      <div className="w-full max-w-screen-sm rounded-2xl bg-white p-5 shadow-lg dark:bg-gray-700">
-        <div className="flex items-center justify-between ">
-          <div className="flex flex-col">
-            <span className="-mb-1 font-semibold text-gray-600">
-              In transit
-            </span>
-            <span className="text-4xl font-semibold">Coolbus</span>
-          </div>
-          <div className="size-12 rounded-full bg-orange-400"></div>
-        </div>
-        <div className="my-2 flex items-center gap-2">
-          <span className="rounded-full bg-green-400 px-2.5 py-1.5 text-xs font-medium uppercase text-white transition hover:scale-125 hover:bg-green-500">
-            Today
-          </span>
-          <span>9:30 - 10:30</span>
-        </div>
-        <div className="relative">
-          <div className="absolute h-2 w-full rounded-full bg-gray-200"></div>
-          <div className="absolute h-2 w-1/3 rounded-full bg-green-300"></div>
-        </div>
-        <div className="mt-6 flex items-center justify-between text-gray-500">
-          <span>Expected</span>
-          <span>Sorting Center</span>
-          <span>In transit</span>
-          <span className="text-gray-300">Delivered</span>
-        </div>
+      <div className="flex w-full max-w-screen-sm flex-col gap-2 rounded-3xl bg-white p-5 shadow-lg dark:bg-gray-700">
+        <input
+          type="text"
+          placeholder="Search here..."
+          className="h-10 w-full rounded-full bg-gray-200 pl-5 outline-none ring ring-transparent transition-shadow placeholder:drop-shadow focus:shadow-md focus:ring-orange-500 focus:ring-offset-2"
+          // className="ring ring-orange-300 ring-offset-2 ring-offset-blue-400"
+        />
+        <button className="rounded-full bg-black bg-opacity-50 py-2 font-medium text-white outline-none transition-transform focus:scale-90 active:scale-90">
+          Search
+        </button>
       </div>
     </main>
   );
