@@ -1,11 +1,28 @@
-import styles from "../styles/style.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex h-screen items-center justify-center bg-slate-300 p-5 sm:bg-red-100 md:bg-green-100 lg:bg-cyan-100 xl:bg-orange-100 2xl:bg-purple-100 dark:bg-slate-600">
-      <div className="flex w-full max-w-screen-sm flex-col gap-4 rounded-3xl bg-white p-5 shadow-lg">
-        <button className={styles.btn}>Submit</button>
+    <div className="flex min-h-screen flex-col items-center justify-between p-6">
+      <div className="my-auto flex flex-col items-center gap-2 *:font-medium">
+        <span className="text-9xl ">🥕</span>
+        <h1 className="text-4xl">당근</h1>
+        <h2 className="text-2xl">당근 마켓에 어서오세요~</h2>
       </div>
-    </main>
+
+      <div className="flex w-full flex-col items-center gap-3">
+        <Link href="/create-acount" className="primary-btn py-2.5  text-lg">
+          시작하기
+        </Link>
+        <div className="flex gap-2 text-sm">
+          <span>이미 계정이 있나요?</span>
+          <Link
+            href="/login"
+            className="text-orange-500 underline-offset-2 hover:underline"
+          >
+            로그인
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }
