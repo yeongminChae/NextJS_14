@@ -1,12 +1,34 @@
 "use server";
 import { z } from "zod";
 
-const formSchema = z.object({
-  username: z.string().min(3).max(20),
-  email: z.string().email(),
-  password: z.string().min(10),
-  corfirmPassword: z.string().min(10),
-});
+function checkUsername(username: string) {
+  return !username.includes("potato");
+}
+
+const formSchema = z
+  .object({
+    username: z
+      .string({
+        invalid_type_error: "Username must be a string",
+        required_error: "Pleast Input your Username",
+      })
+      .min(3, "Way too short")
+      .max(20, "This is too long")
+      .refine(
+        (username) => !username.includes("potato"),
+        "No Potatoes allowed!"
+        // 다른 방식으로 작성 가능
+        // (username) => (username.includes("potato") ? false : true),
+        // "No Potatoes allowed!"
+      ),
+    email: z.string().email(),
+    password: z.string().min(10),
+    confirmPassword: z.string().min(10),
+  })
+  .refine(({ password, confirmPassword }) => password === confirmPassword, {
+    message: "Passwords do not match",
+    path: ["confirmPassword"],
+  });
 
 export async function createAccount(prevState: any, formData: FormData) {
   const data = {
@@ -15,8 +37,7 @@ export async function createAccount(prevState: any, formData: FormData) {
     password: formData.get("password"),
     confirmPassword: formData.get("confirmPassword"),
   };
-  // formSchema.parse(data);
-  const result = formSchema.safeParse(data); // safeParse 는 에러를 반환하지 않음
+  const result = formSchema.safeParse(data);
 
   if (!result.success) {
     return result.error.flatten();
